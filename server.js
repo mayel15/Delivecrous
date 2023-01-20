@@ -222,7 +222,7 @@ app.delete("/cart/:id", authenticateToken, (request, response) => {
     Cart.findOne({id: userDecoded})
         .then((cart) => {
             if (!cart) {
-                return response.json({message: 'Error: Cart not found :/'});
+                return response.json({message: 'Error: Cart not found :/'})
             }
             return Promise.all([cart, Dish.findById(request.params.id)])
         })
@@ -230,7 +230,7 @@ app.delete("/cart/:id", authenticateToken, (request, response) => {
             const dishInCart = cart.dishes.find(dishIn => dishIn.dish.id === dish.id)
             if (dishInCart) {
                 dishInCart.quantity -= 1;
-                cart.price -= dishInCart.dish.price;
+                cart.price -= dishInCart.dish.price
             }
             cart.save().then((cart) =>{
                 return response.status(200).json({
