@@ -19,7 +19,7 @@ const dish_schema = new mongoose.Schema({
 const cart_schema = new mongoose.Schema({
     price: Number,
     address: String,
-    user_id: Object,
+    id: Object,
     dishes: [
         {
             quantity: Number,
@@ -39,9 +39,7 @@ const User = mongoose.model("User", user_schema)
 
 
 
-// authentification
-console.log("secret is ", process.env.ACCESS_TOKEN_SECRET)
-
+// authentification with jwt
 app.listen(process.env.PORT, () => {
     console.log(`Server Started at http://localhost:${process.env.PORT}`)
 })
@@ -63,18 +61,15 @@ const extractBearerToken = headerValue => {
     if (typeof headerValue !== 'string') {
         return false
     }
-
     const matches = headerValue.match(/(bearer)\s+(\S+)/i)
     return matches && matches[2]
 }
 
 function authenticateToken (request, response, next){
     const token = request.headers.authorization && extractBearerToken(request.headers.authorization)
-
     if(!token){
         response.status(401).json({message: 'error :('})
     }
-
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user)=>{
         if(err){
             response.status(401).json({message: 'error :('})
@@ -86,21 +81,8 @@ function authenticateToken (request, response, next){
 }
 
 
-const user = new User({
-    login: 'pape',
-    password: 'abc'
-})
-
-//user.save()
-//const accessToken = generateAccessToken(user)
-
-
-
-
-
-
-/* POST: sign in with your login and password  */
-app.post("/login", (request, response) => {
+// Sign in with login and password
+app.post("/sign_in", (request, response) => {
     if (!request.body.login || !request.body.password) {
         return response.status(404).json({message: 'Error: Enter login and password, please  :|'})
     }
@@ -114,8 +96,8 @@ app.post("/login", (request, response) => {
     })
 })
 
-/* POST: register a new user  */
-app.post("/signup", (request, response)=>{
+// sign up = register
+app.post("/sign_up", (request, response)=>{
     if(!request.body.login || !request.body.password){
         return response.status(404).json({message: 'Error: Enter login and password, please  :|'})
     }
@@ -135,17 +117,19 @@ app.post("/signup", (request, response)=>{
 })
 
 
-// Les routes
+/* the routes*/
 // get all the dishes 
 app.get('/dishes', (request, response)=>{
-    Dish.find().then((dishes)=>response.json(dishes))
+    Dish.find().then((dishes)=>{
+        return response.json(dishes)
+    })
 })
 
-//get a dish by id
+// get a dish by id
 app.get('/dishes/:id', (request, response)=>{
     Dish.findById(request.params.id)
     .then((dish)=>{
-        response.json(dish)
+        return response.json(dish)
     })
 })
 
@@ -153,53 +137,106 @@ app.get('/dishes/:id', (request, response)=>{
 app.get('/cart', authenticateToken, (request, response)=>{
     const user_decoded = decodeToken(request, response)
     Cart.findOne({id: user_decoded.id}).then((cart)=>{
-        response.json(cart)
+        return response.json(cart)
+    })
+})
+
+// add a dish 
+app.post('/dishes', authenticateToken, (request, response)=>{
+    Dish.findOne({name: request.body.name}).then((dish)=>{
+        if(!dish){
+            const newDish = new Dish(request.body)
+            newDish.save().then((dish)=>{
+                return response.json(dish)
+            })
+        }
+        else{
+            return response.json({message: 'Error: the dish already exists :('})
+        }
     })
 })
 
 // add a dish to the cart
-app.post('/cart', authenticateToken, (request, response)=>{
-    const user_decoded = decodeToken(request, response)
-    Cart.findOne({id: user_decoded.id}).then((cart)=>{
-        response.json(cart)
-    })
+app.post("/cart/:id", authenticateToken, (request, response) => {
+    const userDecoded = decodeToken(request, response);
+    Cart.findOne({id: userDecoded.id})
+        .then((cart) => {
+            if (!cart) {
+                cart = new Cart({price: 0, address: "", id: userDecoded.id, dishes: []})
+                return Promise.all([cart.save(), Dish.findById(request.params.id)])
+            }
+            return Promise.all([cart, Dish.findById(request.params.id)])
+        })
+        .then(([cart, dish]) => {
+            const dishInCart = cart.dishes.find(dishIn => dishIn.dish.id === dish.id)
+            if (dishInCart) {
+                dishInCart.quantity += 1;
+                cart.price += dishInCart.dish.price
+            } else {
+                cart.price += dish.price;
+                cart.dishes.push({quantity: 1, dish: dish})
+            }
+            cart.save().then((cart) => response.status(201).json(cart))
+        }).catch(() => response.status(404).end())
 })
 
-// command confirmation
-app.post('/cart/', authenticateToken, (request, response)=>{
-    const user_decoded = decodeToken(request, response)
-    Cart.findOne({id: user_decoded.id}).then((cart)=>{
-        response.json(cart)
-
-
-    })
+// order confirmation 
+app.post("/order_confirmation", authenticateToken, (request, response) => {
+    const userDecoded = decodeToken(request, response);
+    if (!request.body.address) {
+        return response.json({message: 'Error: Please enter your address :/'})
+    }
+    User.findOne({login: userDecoded.login})
+        .then((user) => {
+            console.log(user)
+            return Promise.all([user, Cart.findOne({id: userDecoded.id})])
+        })
+        .then(([user, cart]) => {
+                if (!cart) {
+                    return response.status(404).json({message: 'Error: Cart not found :/'})
+                }
+                cart.save();
+                user.address = request.body.address;
+                user.save().then((user) => {
+                    return response.status(200).json({
+                        message: "Order confirmed :) To you, all the best flavors !",
+                        cart: cart
+                    })
+                })
+            }
+        )
 })
+
 
 // delete a dish 
 app.delete('/dishes/:id', authenticateToken, (request, response)=>{
-    Dish.findByIdAndRemove(requet.params.id)
-        .then(()=>response.json({message: 'Deletion confirmed !'}))
+    Dish.findByIdAndRemove(request.params.id)
+        .then(()=>{
+            return response.json({message: 'Deletion confirmed !'})
+        })
 })
 
 //delete a dish from the cart
-app.delete('/cart/:id', authenticateToken, (request, response)=>{
-    const user_decoded = decodeToken(request, response)
-    Cart.findOne({id: user_decoded.id}).then((cart)=>{
-        if(!cart){
-            return response.json({message: 'Error! Cart not found.'})
-        }
-        //cart.findByIdAndRemove(request.params.id)
-        //    .then(()=>response.json({message: 'Deletion confirmed !'}))
-        const dish_in = cart.dishes.findById(request.params.id)
-        if (dish_in){
-            if(dishes.quantitity >= 0){
-                dishes.quantity -= 1
+app.delete("/cart/:id", authenticateToken, (request, response) => {
+    const userDecoded = decodeToken(request, response);
+    Cart.findOne({id: userDecoded})
+        .then((cart) => {
+            if (!cart) {
+                return response.json({message: 'Error: Cart not found :/'});
             }
-            else{
-                dishes.findByIdAndRemove(requet.params.id)
+            return Promise.all([cart, Dish.findById(request.params.id)])
+        })
+        .then(([cart, dish]) => {
+            const dishInCart = cart.dishes.find(dishIn => dishIn.dish.id === dish.id)
+            if (dishInCart) {
+                dishInCart.quantity -= 1;
+                cart.price -= dishInCart.dish.price;
             }
-            cart.price -= dish_in.price   
-        }
-        cart.update()
-    })
-})
+            cart.save().then((cart) =>{
+                return response.status(200).json({
+                    message: 'Deletion confirmed !',
+                    cart: cart
+                })
+            })
+        })
+});
