@@ -121,7 +121,7 @@ app.post("/sign_up", (request, response)=>{
 // get all the dishes 
 app.get('/dishes', (request, response)=>{
     Dish.find().then((dishes)=>{
-        return response.send(dishes)
+        return response.json(dishes)
     })
 })
 
