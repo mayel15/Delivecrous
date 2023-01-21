@@ -6,6 +6,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 const mongoose = require('mongoose')
 
+const cors = require("cors")
+app.use(cors({
+    origin: "http://localhost:3000/dishes"
+}))
+
 // connection to the database
 mongoose.connect("mongodb://localhost:27017/Delivecrous")
 
@@ -121,7 +126,7 @@ app.post("/sign_up", (request, response)=>{
 // get all the dishes 
 app.get('/dishes', (request, response)=>{
     Dish.find().then((dishes)=>{
-        return response.send(dishes)
+        return response.json(dishes)
     })
 })
 

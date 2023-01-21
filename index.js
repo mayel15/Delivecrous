@@ -1,44 +1,30 @@
 // 
-/*let dishes= []
-
-var myInit = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    mode: 'no-cors',
-    cache: 'default'
-};
-
-let myRequest = new Request("http://localhost:3000/dishes", myInit)
-const fetchDish = async () => {
-    await fetch(myRequest)
-    .then((res) =>{
-        if(res.ok){
-            res.json()
+let dishes = []
+    const fetchDishes = async () => {
+        await fetch('http://localhost:3000/dishes', {method: 'GET'}).then((response)=>response.json())
+            .then((promise)=>{
+                dishes = promise
+                console.log(promise)
+            })
+        
+    };
+    const fetchDishesDisplay = async () => {
+        await fetchDishes();
+        let affichage;
+        for(let i=0; i< dishes.length ; i++){
+            affichage += `<div class="card col-lg-4 card-dish" style="width: 18rem;">
+                <img class="card-img-top" src="images/yassa.jpeg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">${dishes[i].name}<span class="price">${dishes[i].price.toString()}€</span></h5>
+                  <p class="card-text">${dishes[i].description}</p>
+                  <a href="#" class="btn btn-primary">voir</a>
+                </div>
+            </div>
+            `
         }
-        else{
-            console.log("Erreur")
-        }
-    })
-    .then((promise)=>{
-        dishes = promise;
-        console.log(promise);
-    })
-};
+        console.log(affichage)
+        document.querySelector('.all-dishes').innerHTML = affichage
+    }
+    
+fetchDishesDisplay();
 
-
-const dishesDisplay = async () =>{
-    await fetchDish();
-    document.getElementById("bloc").innerHTML = dishes.map(
-        (dish) => `
-        <div id="card${dish._id}">
-            <h3>${$dish.name}</h3> 
-            <h3>${$dish.description}</h3>
-            <h3>${$dish.price.toString()}</h3>
-        </div>
-        `
-    )
-};
-
-dishesDisplay();*/
