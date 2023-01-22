@@ -58,9 +58,11 @@ h1{
     padding: 2% 15%;
 }
 
-.content-title, .cart-title{
+.content-title, .cart-title, .dish-gestion-title{
     color: black;
     margin-bottom: 2%;
+    text-align: center;
+    justify-content: center;
 }
 .card-dish{
     margin: 3% 3%;
@@ -95,7 +97,7 @@ h1{
     margin-bottom: 1rem;
 }*/
 
-.order-question, .total-price, .btn-order,.order{
+.order-question, .total-price, .btn-order, .order, .list-dish-exist{
     justify-content: center;
     text-align: center;
     margin: 5% 0 5% 0;
@@ -107,6 +109,15 @@ h1{
     width: 6rem;
 }
 
+.order-address, .add-dish{
+    margin: 0 20% 0 20%;
+}
+
+.question-add-dish{
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 2%;
+}
 
 /* sign */ 
 #log-in, #sign-up {

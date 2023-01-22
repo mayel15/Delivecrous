@@ -45,7 +45,7 @@
               <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>
             <li class="nav-item btn-cart">
-              <a class="nav-link" href="gestion.html"><i class="fa-solid fa-hammer"></i></a>
+                <a class="nav-link" href="gestion.html"><i class="fa-solid fa-hammer"></i></a>
             </li>
           </ul>
         </div>
@@ -55,17 +55,31 @@
   
   <!-- dishes -->
   <section id="content">
-    <h1 class="content-title">Notre gamme de plats</h1>
-    <div class="row all-dishes">
-        <div class="card col-lg-4 card-dish" style="width: 18rem;">
-            <img class="card-img-top" src="images/yassa.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title<span class="price">20€</span></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a method="post" action="/dishes/:id" href="dish.html" class="btn btn-primary">Voir</a>
-              <a method="post" action="/cart/:id" class="btn btn-primary">Ajouter au panier</a>
-            </div>
-        </div>
+    <h1 class="dish-gestion-title">Gestion des plats</h1>
+    <div class="question-add-dish">
+        <h4>Ajouter un plat ? <a href="add-update.html" class="btn btn-primary">Ajouter</a></h4>
+    </div>
+    <div class="list-dish-exist">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
+                <p>Cras justo odio</p> 
+                <a href=""><i class="fa-solid fa-pen"></i></a>
+                <a href=""><i class="fa-solid fa-trash"></i></a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
+                <p>Dapibus ac facilisis in</p>
+                <a href=""><i class="fa-solid fa-pen"></i></a>
+                <a href=""><i class="fa-solid fa-trash"></i></a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
+                <p>Morbi leo risus</p> 
+                <a href="" ><i class="fa-solid fa-pen"></i></a>
+                <a href=""><i class="fa-solid fa-trash"></i></a>
+            </li>
+        </ul>
     </div>
   </section>
 
