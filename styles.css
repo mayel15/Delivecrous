@@ -57,6 +57,11 @@ h1{
 #content {
     padding: 2% 15%;
 }
+
+.content-title, .cart-title{
+    color: black;
+    margin-bottom: 2%;
+}
 .card-dish{
     margin: 3% 3%;
     background-color: #EEDBCB;
@@ -67,22 +72,61 @@ h1{
     right: 2rem;
 }
 
+.price-dish{
+    position: relative;
+    left: 5rem;
+}
+
+.particular-dish img {
+    width: 30rem;
+    height: 20rem;
+}
+
+.cart-list .badge-primary{
+    background-color: #EEDBCB;
+    color: black;
+}
+
+/*.card-dish img {
+    width: 100%;
+    height: 100%;
+}
+.card-dish a{
+    margin-bottom: 1rem;
+}*/
+
+.order-question, .total-price, .btn-order,.order{
+    justify-content: center;
+    text-align: center;
+    margin: 5% 0 5% 0;
+
+}
+
+.img-cart-dish{
+    height: 6rem;
+    width: 6rem;
+}
+
+
 /* sign */ 
-#sign-in, #sign-up {
+#log-in, #sign-up {
     margin: 7% 30%;
     padding: 2% 5%;
     border-radius: /*5%*/50px;
-    border: solid #345EA8 2px;
+    border: solid black 2px;
     background-color: #EEDBCB;
-  }
-  
-  .rest-connect {
+}
+
+.sign a{
+    color:#1b60d8;
+}
+.rest-connect {
     padding: 5% 0;
-  }
+}
   
-  .btn-connect {
+.btn-connect {
     margin: 5% 0;
-  }
+}
 
 /* footer */
 #footer{
