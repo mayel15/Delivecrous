@@ -87,7 +87,9 @@
                     <label for="floatingInput">Adresse postale</label>
                 </div>
             </div>
-            <a href="http://localhost:3000/order_confirmation" class="btn btn-primary btn-order">Passer commande</a>
+            <form action="http://localhost:3000/order_confirmation" method="post">
+                <button type="submit" name="submit" class="btn btn-primary btn-order">Passer commande</button>
+            </form>
         </div>
         
     </div>
