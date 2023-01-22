@@ -65,31 +65,33 @@
     <!-- log-in -->
     <section id="log-in" class="sign">
         <h2 style="margin-bottom: 5%;"><i class="fa-solid fa-right-to-bracket"></i> Connexion</h2>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Identifiant</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Mot de passe</label>
-        </div>
-        <div class="rest-connect">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Se souvenir de moi
-                </label>
+        <form action="http://localhost:3000/login" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" name="login" class="form-control" id="floatingInput" placeholder="Identifiant">
+                <label for="floatingInput">Identifiant</label>
             </div>
-            <button type="button" class="btn btn-primary btn-connect">Se connecter</button>
-            <div class="row">
-                <div class="col-lg-6">
-                    <p>Nouveau ? <a href="sign-up.html">S'inscrire</a></p>
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Mot de passe</label>
+            </div>
+            <div class="rest-connect">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Se souvenir de moi
+                    </label>
                 </div>
-                <div class="col-lg-6">
-                    <a href="#">Mot de passe oublié ?</a>
+                <button type="submit" name="submit" class="btn btn-primary btn-connect">Se connecter</button>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Nouveau ? <a href="sign-up.html">S'inscrire</a></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <a href="#">Mot de passe oublié ?</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
     <!-- footer -->

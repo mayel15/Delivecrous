@@ -87,7 +87,7 @@ function authenticateToken (request, response, next){
 
 
 // Sign in with login and password
-app.post("/sign_in", (request, response) => {
+app.post("/login", (request, response) => {
     if (!request.body.login || !request.body.password) {
         return response.status(404).json({message: 'Error: Enter login and password, please  :|'})
     }
