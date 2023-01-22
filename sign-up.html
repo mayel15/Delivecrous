@@ -65,28 +65,30 @@
     <!-- sign-up -->
     <section id="sign-up" class="sign">
         <h2 style="margin-bottom: 5%;"><i class="fa-solid fa-right-to-bracket"></i> Inscription</h2>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Identifiant</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Mot de passe</label>
-        </div>
-        <div class="rest-connect">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Accepter les <a href="#">conditions d'utilisation</a>
-                </label>
+        <form action="http://localhost:3000/sign_up" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" name="login" class="form-control" id="floatingInput" placeholder="Identifiant">
+                <label for="floatingInput">Identifiant</label>
             </div>
-            <button type="button" class="btn btn-primary btn-connect">S'inscrire</button>
-            <div class="row">
-                <div class="col-lg-6">
-                    <p>Déjà inscrit ? <a href="log-in.html">Se connecter</a></p>
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Mot de passe</label>
+            </div>
+            <div class="rest-connect">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Accepter les <a href="#">conditions d'utilisation</a>
+                    </label>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary btn-connect">S'inscrire</button>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Déjà inscrit ? <a href="log-in.html">Se connecter</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
     <!-- footer -->
