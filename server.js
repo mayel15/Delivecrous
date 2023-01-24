@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 
 const cors = require("cors")
 app.use(cors({
-    origin: "http://localhost:3000/dishes"
+    origin: "http://localhost:3000/"
 }))
 
 // connection to the database
@@ -94,7 +94,8 @@ app.post("/login", (request, response) => {
     User.findOne({login: request.body.login, password: request.body.password})
         .then(user => {
             return response.json({
-                token: generateAccessToken(user)
+                token: generateAccessToken(user), 
+                userLogin: request.body.login
             })
         }).catch(error => {
         return response.status(401).json({message: 'invalid Credentials :('});

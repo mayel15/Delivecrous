@@ -10,7 +10,7 @@ const fetchDishes = async () => {
 };
 const fetchDishesDisplay = async () => {
     await fetchDishes();
-    let affichage = "<ul>" ;
+    let affichage = "" ;
     for (let i = 0; i < dishes.length; i++) {
         affichage += `
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -21,9 +21,8 @@ const fetchDishesDisplay = async () => {
         </li>
         `
     }
-    affichage += "</ul>"
     console.log(affichage)
-    document.querySelector('.list-dish-exist').innerHTML = affichage
+    document.querySelector('.list-group').innerHTML = affichage
 }
 
 fetchDishesDisplay();
