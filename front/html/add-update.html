@@ -14,7 +14,7 @@
   <!-- CSS Stylesheet -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,30 +56,25 @@
   <!-- dishes -->
   <section id="content">
     <h1 class="dish-gestion-title">Gestion des plats</h1>
-    <div class="question-add-dish">
-        <h4>Ajouter un plat ? <a href="add-update.html" class="btn btn-primary">Ajouter</a></h4>
-    </div>
+    <h4 class="question-add-dish">Ajouter un plat ? </h4>
     <div class="list-dish-exist">
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                <p>Cras justo odio</p> 
-                <a href=""><i class="fa-solid fa-pen"></i></a>
-                <a href=""><i class="fa-solid fa-trash"></i></a>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                <p>Dapibus ac facilisis in</p>
-                <a href=""><i class="fa-solid fa-pen"></i></a>
-                <a href=""><i class="fa-solid fa-trash"></i></a>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                <p>Morbi leo risus</p> 
-                <a href="" ><i class="fa-solid fa-pen"></i></a>
-                <a href=""><i class="fa-solid fa-trash"></i></a>
-            </li>
-        </ul>
+        <div class="add-dish">
+          <form action="http://localhost:3000/dishes" method="post">
+            <div class="form-floating mb-3">
+              <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name">
+              <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" name="description" class="form-control" id="floatingInput" placeholder="Description">
+              <label for="floatingInput">Description</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" name="price" class="form-control" id="floatingInput" placeholder="Price">
+              <label for="floatingInput">Prix</label>
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div>
     </div>
   </section>
 
@@ -100,7 +95,7 @@
       </div>
     </div>
   </section>
-  <script src="gestion.js"></script>
+  <script src=""></script>
 </body>
 
 </html>

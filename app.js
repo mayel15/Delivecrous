@@ -219,7 +219,7 @@ app.delete('/dishes/:id', authenticateToken, (request, response)=>{
 //delete a dish from the cart
 app.delete("/cart/:id", authenticateToken, (request, response) => {
     const userDecoded = decodeToken(request, response);
-    Cart.findOne({id: userDecoded})
+    Cart.findOne({id: userDecoded.id})
         .then((cart) => {
             if (!cart) {
                 return response.json({message: 'Error: Cart not found :('})

@@ -14,7 +14,7 @@
   <!-- CSS Stylesheet -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,7 +42,7 @@
               <a class="nav-link" href="log-in.html"><i class="fa-solid fa-right-to-bracket"></i></a>
             </li>
             <li class="nav-item btn-cart">
-              <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>
             <li class="nav-item btn-cart">
                 <a class="nav-link" href="gestion.html"><i class="fa-solid fa-hammer"></i></a>
@@ -55,43 +55,14 @@
   
   <!-- dishes -->
   <section id="content">
-    <div>
-        <h1 class="cart-title">Le panier </h1>
-        <div class="cart-list">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                    <p><span><strong>2. </strong></span>Cras justo odio</p> 
-                    <span class="badge badge-primary badge-pill">14€</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                    <p><span><strong>2. </strong></span>Dapibus ac facilisis in</p>
-                    <span class="badge badge-primary badge-pill">2€</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <img class="card-img-top img-cart-dish" src="images/yassa.jpeg" alt="yassa-image">
-                    <p><span><strong>1. </strong></span>Morbi leo risus</p> 
-                    <span class="badge badge-primary badge-pill">1€</span>
-                </li>
-            </ul>
-            <div class="total-price">
-                <h4>Total: <span class="badge badge-primary badge-pill">17€</span></h4>
-            </div>
+    <h1 class="content-title">Détails du plat</h1>
+    <div class="row particular-dish">
+        <img class="card-img-top col-lg-6" src="../images/yassa.jpeg" alt="dish-image">
+        <div class="dish-text col-lg-6">
+            <h3 class="card-title">Card title<span class="price-dish">20€</span></h3>
+            <p class="card-text"> Description Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a method="post" action="/cart/:id" class="btn btn-primary">Ajouter au panier</a>
         </div>
-        <div class="order">
-            <h2 class="order-question">Où veux tu te faire livrer ? <br> En salle de TD ?</h2>
-            <div class="order-address">
-                <div class="form-floating mb-3">
-                    <input type="text" name="address" class="form-control" id="floatingInput" placeholder="Adresse">
-                    <label for="floatingInput">Adresse postale</label>
-                </div>
-            </div>
-            <form action="http://localhost:3000/order_confirmation" method="post">
-                <button type="submit" name="submit" class="btn btn-primary btn-order">Passer commande</button>
-            </form>
-        </div>
-        
     </div>
   </section>
 
@@ -112,7 +83,7 @@
       </div>
     </div>
   </section>
-  <script src="cart.js"></script>
+  <script src=""></script>
 </body>
 
 </html>

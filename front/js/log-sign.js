@@ -16,7 +16,7 @@ function auth(){
     let affichage = `<h3>Bienvenue <em>${user[0].name}</em></h3>` ;
     console.log(affichage)
     document.querySelector('.welcome-word').innerHTML = affichage
-    window.location.assign("index.html")
+    window.location.assign("../html/index.html")
 }
 
 
