@@ -1,5 +1,16 @@
 # Delivecrous
 
+## Installation
+Make sure `npm`, `git`, `MongoDB` is installed. You can check it with :
+
+Clone my project 
+```bash
+  git clone 
+```
+
+Install the necessary dependencies 
+
+
 ## API 
 Only `GET /`, `GET /dishes`, `GET /dishes/{id}`, `POST /login` and `POST /sign_up` don't need account to access. 
 
