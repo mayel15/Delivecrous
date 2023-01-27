@@ -124,6 +124,11 @@ app.post("/sign_up", (request, response)=>{
 
 
 /* the routes*/
+// welcome
+app.get('/dishes', (request, response)=>{
+    response.json({message:"Bienvenue dans DeliveCROUS ! :-)"})
+})
+
 // get all the dishes 
 app.get('/dishes', (request, response)=>{
     Dish.find().then((dishes)=>{
