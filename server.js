@@ -221,7 +221,7 @@ app.post("/order_confirmation", authenticateToken, (request, response) => {
 
 // delete a dish 
 app.delete('/dishes/:id', authenticateToken, (request, response)=>{
-    Dish.findByIdAndRemove(request.params.id)
+    Dish.findByIdAndDelete(request.params.id)
         .then(()=>{
             return response.json({message: 'Deletion confirmed !'})
         })
