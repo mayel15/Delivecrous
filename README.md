@@ -62,7 +62,7 @@ For using token, you need to:
   npm start 
 ```
 - Open the file `front/html/index.html`
-- Surf on the web app, order some dishes, and enjoy :-)
+- **Surf** on the web app, **order** some dishes, and **enjoy :-)**
 
 ### Fix CORS problems 
 The easy way to fix `CORS`, is to download chrome extension [here](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en)
