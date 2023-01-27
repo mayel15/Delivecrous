@@ -38,3 +38,12 @@ Only `GET /`, `GET /dishes`, `GET /dishes/{id}`, `POST /login` and `POST /sign_u
 | `POST`      | `/order_confirmation` | For confirming an order  |
 | `DELETE`      | `/dishes/{id}` | Delete a dish from the collection by its id |
 | `DELETE`      | `/cart/{id}` | Delete a dish from the cart by its id |
+
+## Postman API test
+You can find the Delivecrous collection in the file named : `Delicrous API - Pape THIAM.postman_collection`.
+
+For using token, you need to:
+- Login on `POST /login` using login and password 
+- Copy the token and paste it on `Baerer Token Authorization`
+
+
