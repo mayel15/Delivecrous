@@ -5,10 +5,19 @@ Make sure `npm`, `git`, `MongoDB` is installed. You can check it with :
 
 Clone my project 
 ```bash
-  git clone 
+  git clone https://github.com/mayel15/Delivecrous.git
 ```
 
-Install the necessary dependencies 
+Install the necessary dependencies :
+```bash
+  npm install express
+  npm install nodemon 
+  npm install mongoose
+  npm install body-parser
+  npm install jsonwebtoken
+  npm install dotenv
+  npm install cors
+```
 
 
 ## API 
