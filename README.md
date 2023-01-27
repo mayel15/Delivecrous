@@ -1,7 +1,7 @@
 # Delivecrous
 
 ## Installation
-Make sure `npm`, `git`, `MongoDB` is installed. You can check it with :
+Make sure `npm`, `git`, `MongoDB` are installed. 
 
 Clone my project 
 ```bash
@@ -18,7 +18,6 @@ Install the necessary dependencies :
   npm install dotenv
   npm install cors
 ```
-
 
 ## API 
 Only `GET /`, `GET /dishes`, `GET /dishes/{id}`, `POST /login` and `POST /sign_up` don't need account to access. 
