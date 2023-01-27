@@ -3,12 +3,15 @@
 ## Installation
 Make sure `npm`, `git`, `MongoDB` are installed. 
 
-Clone my project 
+Clone the project 
 ```bash
   git clone https://github.com/mayel15/Delivecrous.git
 ```
 
-Install the necessary dependencies :
+Install the necessary dependencies 
+```bash
+  cd Delivecrous
+```
 ```bash
   npm install express
   npm install nodemon 
