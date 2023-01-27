@@ -70,13 +70,6 @@ h1{
     color: black;
 }
 
-/*.card-dish img {
-    width: 100%;
-    height: 100%;
-}
-.card-dish a{
-    margin-bottom: 1rem;
-}*/
 
 .order-question, .total-price, .btn-order, .order, .list-dish-exist{
     justify-content: center;

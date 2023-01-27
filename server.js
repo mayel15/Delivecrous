@@ -125,7 +125,7 @@ app.post("/sign_up", (request, response)=>{
 
 /* the routes*/
 // welcome
-app.get('/dishes', (request, response)=>{
+app.get('/', (request, response)=>{
     response.json({message:"Bienvenue dans DeliveCROUS ! :-)"})
 })
 
