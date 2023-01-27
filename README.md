@@ -30,7 +30,7 @@ Only `GET /`, `GET /dishes`, `GET /dishes/{id}`, `POST /login` and `POST /sign_u
 | `GET`      | `/` | Get the Welcome Message :-) |
 | `GET`      | `/dishes` | Get all the dishes |
 | `GET`      | `/dishes/${id}` | Get a particular dish by id |
-| `GET`      | `/cart` | Get the the dishes of a cart |
+| `GET`      | `/cart` | Get the dishes of a cart |
 | `POST`      | `/login` | Sign in with login and password |
 | `POST`      | `/sign_up` | Sign up with login and password |
 | `POST`      | `/dishes` | Add a new dish to the collection |
@@ -46,15 +46,15 @@ Only `GET /`, `GET /dishes`, `GET /dishes/{id}`, `POST /login` and `POST /sign_u
 ```
 
 
-## Postman API test
+## Postman API tests
 You can find the Delivecrous collection in the file named : `Delicrous API - Pape THIAM.postman_collection`.
 
 For using token, you need to:
-- Register with `POST /sigh_up` using login and password
+- Register with `POST /sign_up` using login and password
 - Login with `POST /login` using login and password 
 - Copy the token and paste it on `Authorization > Baerer Token > ${token}`
 - You can in the same occasion add new dishes with `POST /dishes` using the attributes (name, description, price)
-- You can also add some dihes in the cart with `POST /cart/${id}`
+- You can also add some dishes in the cart with `POST /cart/${id}`
 
 ## Launch the full app 
 - Run the server 
