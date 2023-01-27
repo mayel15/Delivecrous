@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "b22e7c73-b223-439c-98a2-ba1fe1c60557",
+		"name": "Delicrous API - Pape THIAM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23376084"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "/sign_up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"pape\",\r\n    \"password\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/sign_up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"pape\",\r\n    \"password\": \"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dishes 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3Njk3MSwiZXhwIjoxNjc0Njc4NzcxfQ.muLLaRy-K05JCpB13XuDGiSoTjRKJL-vTI92Y-og5tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Riz au poisson\",\r\n    \"description\": \"Riz blanc + poisson + legumes\",\r\n    \"price\": 11\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/dishes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dishes 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3Njk3MSwiZXhwIjoxNjc0Njc4NzcxfQ.muLLaRy-K05JCpB13XuDGiSoTjRKJL-vTI92Y-og5tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mafé\",\r\n    \"description\": \"Riz blanc accompagne de la sauce + beurre de cacahuetes + viande\",\r\n    \"price\": 14\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/dishes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dishes 3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3Njk3MSwiZXhwIjoxNjc0Njc4NzcxfQ.muLLaRy-K05JCpB13XuDGiSoTjRKJL-vTI92Y-og5tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Yassa au poulet\",\r\n    \"description\": \"Riz blanc accompagne avec de la sauce + poulet grillé\",\r\n    \"price\": 12\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/dishes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cart/dish1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3ODAyOSwiZXhwIjoxNjc0Njc5ODI5fQ.WzysWal0QesESkr9CLzLU9xvu_ltEykfKAYBQAxzbC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/63d18c03197d4d440422a13a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"63d18c03197d4d440422a13a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cart/dish2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3Njk3MSwiZXhwIjoxNjc0Njc4NzcxfQ.muLLaRy-K05JCpB13XuDGiSoTjRKJL-vTI92Y-og5tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/63d18c6c197d4d440422a13d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"63d18c6c197d4d440422a13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cart/dish3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3Njk3MSwiZXhwIjoxNjc0Njc4NzcxfQ.muLLaRy-K05JCpB13XuDGiSoTjRKJL-vTI92Y-og5tw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/63d18c79197d4d440422a140",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"63d18c79197d4d440422a140"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/order_confirmation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3ODAyOSwiZXhwIjoxNjc0Njc5ODI5fQ.WzysWal0QesESkr9CLzLU9xvu_ltEykfKAYBQAxzbC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"15 Rue Pape Thiam, 2023 Neptune, Univers\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/order_confirmation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"order_confirmation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dishes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/dishes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/dishes/:id 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/dishes/63d18c03197d4d440422a13a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"dishes",
+								"63d18c03197d4d440422a13a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3ODAyOSwiZXhwIjoxNjc0Njc5ODI5fQ.WzysWal0QesESkr9CLzLU9xvu_ltEykfKAYBQAxzbC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "/dishes/:id",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/cart/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6InBhcGUiLCJwYXNzd29yZCI6ImFiYyIsImlhdCI6MTY3NDY3ODg3MiwiZXhwIjoxNjc0NjgwNjcyfQ.jtNtTWlTGCDqB7SDAJUe7aDYqqxdpV-5M30CR7XBD18",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cart/63d18c03197d4d440422a13a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"63d18c03197d4d440422a13a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
